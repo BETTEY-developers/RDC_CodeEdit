@@ -1,18 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Reflection;
+using System.Runtime.InteropServices;
+using System.Security;
 using System.Windows.Forms;
 
 namespace Dll1
 {
-    struct CompObjectType
+    public struct CompObjectType
     {
-        struct TypeValues
+        public struct TypeValues
         {
             public TypeValues(CompObjectType ns = new CompObjectType())
             {
@@ -20,21 +18,22 @@ namespace Dll1
                 Window = ns;
                 Binray = ns;
                 Default = Binray;
+                Empty = ns;
                 Console.Value = 0x3;
                 Window.Value = 0x26;
                 Binray.Value = 0x2;
                 Default.Value = 0x3;
+                Empty.Value = int.MinValue;
             }
             internal CompObjectType Console;
             internal CompObjectType Window;
             internal CompObjectType Binray;
             internal CompObjectType Default;
+            internal CompObjectType Empty;
         }
         internal int Value;
-        internal object Empty { get => new object(); }
         public static CompObjectType GetType(int id)
         {
-            CompObjectType thisc = new CompObjectType();
             TypeValues tv = new TypeValues(new CompObjectType());
             switch (id)
             {
@@ -47,20 +46,26 @@ namespace Dll1
                 case 0:
                     return tv.Default;
                 default:
-                    return (CompObjectType)thisc.Empty;
+                    return tv.Empty;
             }
         }
     }
     public struct ObjectSetting
     {
-        string Name;
-        CompObjectType ObjType;
-        Icon ObjectImage;
+        public string Name;
+        public CompObjectType ObjType;
+        public Icon ObjectImage;
     }
     public partial class CreateObjectMenu : Form
     {
-        Obj
-        CompObjectType cot;
+        class Funs
+        {
+            public static string GetControlText(object Control)
+            {
+                return Control.ToString();
+            }
+        }
+        ObjectSetting seting = new ObjectSetting();
 
         public CreateObjectMenu()
         {
@@ -79,13 +84,36 @@ namespace Dll1
 
         private void ObjectType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cot = CompObjectType.GetType(ObjectType.SelectedIndex);
+            
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFile = new OpenFileDialog();
-            openFile.
+            openFile.AutoUpgradeEnabled = true;
+            var Result = openFile.ShowDialog();
+            if(Result == DialogResult.OK)
+            {
+                seting.Name = Funs.GetControlText(ObjectName)
+                    ;
+                seting.ObjType = CompObjectType.GetType(ObjectType.SelectedIndex);
+                if(textBox1.Text != "")
+                {
+                    seting.ObjectImage = Icon.ExtractAssociatedIcon(textBox1.Text);
+                }
+                else
+                {
+                    seting.ObjectImage = null;
+                }
+            }
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(tabControl1.SelectedTab == tabPage3)
+            {
+                while (100000 >= progressBar1.Value)
+                    progressBar1.Value += 100;
+            }
         }
     }
 }
