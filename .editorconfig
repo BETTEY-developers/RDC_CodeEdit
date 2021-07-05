@@ -1,0 +1,7 @@
+﻿[*.cs]
+
+# Default severity for analyzer diagnostics with category 'Style'
+dotnet_analyzer_diagnostic.category-Style.severity = silent
+
+# CS0626: 方法、运算符或访问器标记为外部对象并且上面没有任何特性
+dotnet_diagnostic.CS0626.severity = none

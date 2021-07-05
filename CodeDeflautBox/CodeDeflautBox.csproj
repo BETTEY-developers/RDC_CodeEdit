@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{04E2DB86-3809-4668-80BD-BAE1FE4D7897}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CodeDeflautBox</RootNamespace>
+    <AssemblyName>CodeDeflautBox</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\RDC代码编辑器\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>RDC代码编辑器密钥.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CodeBoxInterface.cs" />
+    <Compile Include="HelloWorld.cs" />
+    <Compile Include="MainWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainWindow.Designer.cs">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MainWindow.resx</DependentUpon>
+    </Compile>
+    <Compile Include="MessageBoxs.cs" />
+    <Compile Include="OperatorVar.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\WriteCode.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WriteCode.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Prosee.cs" />
+    <Compile Include="RunProgram.cs" />
+    <Compile Include="SetVar.cs" />
+    <Compile Include="WriteCode.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MainWindow.resx">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>MainWindow1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\WriteCode.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>WriteCode.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="RDC代码编辑器密钥.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Code\HelloWorld.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Code\OperatorVar.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Code\SetVar.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Code\MessageBox.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\1.0.1 Dll\CodeEdit.csproj">
+      <Project>{29f9abf2-a964-48af-862b-48a38442da2e}</Project>
+      <Name>CodeEdit</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RDC代码编辑器\window.csproj">
+      <Project>{a3cac606-9869-4b72-9eb9-5d24b5ed1b82}</Project>
+      <Name>window</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HelloWorld.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MessageBox.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OperatorVar.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SetVar.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

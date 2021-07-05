@@ -1,0 +1,12 @@
+using System;
+
+namespace program
+{
+	class Program
+	{
+		public static void Main()
+		{
+			System.Windows.Forms.MessageBox.Show("Hello World!");//ÒªÒýÓÃWindows.Forms
+		}
+	}
+}

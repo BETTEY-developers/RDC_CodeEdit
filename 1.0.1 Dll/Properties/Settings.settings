@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Dll1.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Fonts" Type="System.Drawing.Font" Scope="Application">
+      <Value Profile="(Default)">宋体, 9pt</Value>
+    </Setting>
+    <Setting Name="Colors" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">Black</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

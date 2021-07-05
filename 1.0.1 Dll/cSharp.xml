@@ -1,0 +1,9 @@
+﻿<list>
+	<namelist this_name="using" r="00" g="00" b="150"     />
+	<namelist this_name="int" r="00" g="00" b="150"       />
+	<namelist this_name="long" r="00" g="00" b="150"      />
+	<namelist this_name="short" r="00" g="00" b="150"     />
+	<namelist this_name="llong" r="00" g="00" b="150"	  />
+	<namelist this_name="float" r="00" g="00" b="150"     />
+	<namelist this_name="uint" r="00" g="00" b="150"      />
+</list>
