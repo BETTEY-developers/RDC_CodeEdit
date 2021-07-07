@@ -98,7 +98,7 @@ namespace Dll1
 
         private void 生成ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Process pro = new Process();
+            /*Process pro = new Process();
 
             pro.StartInfo.FileName = @"Microsoft.NET\Framework\v4.0.30319\csc.exe";
             pro.StartInfo.UseShellExecute = false;
@@ -123,7 +123,7 @@ namespace Dll1
                 FileModes = 0;
                 Start s = new Start();
                 s.Show();
-            }
+            }*/
         }
 
 
