@@ -1,7 +1,7 @@
 ﻿
 namespace Dll1
 {
-    partial class CreateObjectMenu
+    partial class CreateProjectMenu
     {
         /// <summary>
         /// Required designer variable.
@@ -41,12 +41,15 @@ namespace Dll1
             this.ImagePath = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.ObjectName = new System.Windows.Forms.TextBox();
+            this.ProjectName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.ObjectType = new System.Windows.Forms.ComboBox();
+            this.ProjectType = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.label6 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -65,7 +68,6 @@ namespace Dll1
             this.tabControl1.Size = new System.Drawing.Size(413, 250);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.TabStop = false;
-            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPage1
             // 
@@ -90,6 +92,7 @@ namespace Dll1
             this.next.TabIndex = 3;
             this.next.Text = "下一步";
             this.next.UseVisualStyleBackColor = true;
+            this.next.Click += new System.EventHandler(this.next_Click);
             // 
             // textBox1
             // 
@@ -122,14 +125,17 @@ namespace Dll1
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.textBox2);
+            this.tabPage2.Controls.Add(this.button2);
+            this.tabPage2.Controls.Add(this.label6);
             this.tabPage2.Controls.Add(this.Exit);
             this.tabPage2.Controls.Add(this.AllOK);
             this.tabPage2.Controls.Add(this.ImagePath);
             this.tabPage2.Controls.Add(this.button1);
             this.tabPage2.Controls.Add(this.label5);
-            this.tabPage2.Controls.Add(this.ObjectName);
+            this.tabPage2.Controls.Add(this.ProjectName);
             this.tabPage2.Controls.Add(this.label4);
-            this.tabPage2.Controls.Add(this.ObjectType);
+            this.tabPage2.Controls.Add(this.ProjectType);
             this.tabPage2.Controls.Add(this.label3);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
@@ -147,6 +153,7 @@ namespace Dll1
             this.Exit.TabIndex = 8;
             this.Exit.Text = "取消";
             this.Exit.UseVisualStyleBackColor = true;
+            this.Exit.Click += new System.EventHandler(this.Exit_Click);
             // 
             // AllOK
             // 
@@ -187,10 +194,10 @@ namespace Dll1
             // 
             // ObjectName
             // 
-            this.ObjectName.Location = new System.Drawing.Point(102, 35);
-            this.ObjectName.Name = "ObjectName";
-            this.ObjectName.Size = new System.Drawing.Size(120, 21);
-            this.ObjectName.TabIndex = 3;
+            this.ProjectName.Location = new System.Drawing.Point(102, 35);
+            this.ProjectName.Name = "ObjectName";
+            this.ProjectName.Size = new System.Drawing.Size(120, 21);
+            this.ProjectName.TabIndex = 3;
             // 
             // label4
             // 
@@ -205,18 +212,18 @@ namespace Dll1
             // 
             // ObjectType
             // 
-            this.ObjectType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ObjectType.FormattingEnabled = true;
-            this.ObjectType.Items.AddRange(new object[] {
+            this.ProjectType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ProjectType.FormattingEnabled = true;
+            this.ProjectType.Items.AddRange(new object[] {
             "控制台",
             "Windows应用程序",
             "动态链接库",
             "默认"});
-            this.ObjectType.Location = new System.Drawing.Point(101, 6);
-            this.ObjectType.Name = "ObjectType";
-            this.ObjectType.Size = new System.Drawing.Size(121, 20);
-            this.ObjectType.TabIndex = 1;
-            this.ObjectType.SelectedIndexChanged += new System.EventHandler(this.ObjectType_SelectedIndexChanged);
+            this.ProjectType.Location = new System.Drawing.Point(101, 6);
+            this.ProjectType.Name = "ObjectType";
+            this.ProjectType.Size = new System.Drawing.Size(121, 20);
+            this.ProjectType.TabIndex = 1;
+            this.ProjectType.SelectedIndexChanged += new System.EventHandler(this.ObjectType_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -241,14 +248,40 @@ namespace Dll1
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(7, 20);
-            this.progressBar1.Maximum = 1000000;
+            this.progressBar1.Location = new System.Drawing.Point(7, 52);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(392, 20);
-            this.progressBar1.Step = 1;
-            this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+            this.progressBar1.Size = new System.Drawing.Size(392, 23);
+            this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.progressBar1.TabIndex = 0;
-            this.progressBar1.Value = 1000000;
+            this.progressBar1.Click += new System.EventHandler(this.progressBar1_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft YaHei UI", 14F);
+            this.label6.Location = new System.Drawing.Point(7, 84);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(164, 25);
+            this.label6.TabIndex = 9;
+            this.label6.Text = "项目文件储存地方";
+            // 
+            // button2
+            // 
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Location = new System.Drawing.Point(177, 89);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 10;
+            this.button2.Text = "浏览";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(258, 93);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 21);
+            this.textBox2.TabIndex = 11;
             // 
             // CreateObjectMenu
             // 
@@ -277,16 +310,19 @@ namespace Dll1
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox ObjectType;
+        private System.Windows.Forms.ComboBox ProjectType;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox ImagePath;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox ObjectName;
+        private System.Windows.Forms.TextBox ProjectName;
         private System.Windows.Forms.Button next;
         private System.Windows.Forms.Button Exit;
         private System.Windows.Forms.Button AllOK;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label6;
     }
 }

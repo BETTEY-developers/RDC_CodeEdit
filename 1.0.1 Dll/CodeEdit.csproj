@@ -25,7 +25,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>D:\RDCCodeEditExecute\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -96,17 +96,17 @@
     <Compile Include="Copyright.Designer.cs">
       <DependentUpon>Copyright.cs</DependentUpon>
     </Compile>
-    <Compile Include="CreateObjectMenu.cs">
+    <Compile Include="CreateProjectMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CreateObjectMenu.Designer.cs">
-      <DependentUpon>CreateObjectMenu.cs</DependentUpon>
+    <Compile Include="CreateProjectMenu.Designer.cs">
+      <DependentUpon>CreateProjectMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="ObjectCra.cs">
+    <Compile Include="ProjectCra.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ObjectCra.Designer.cs">
-      <DependentUpon>ObjectCra.cs</DependentUpon>
+    <Compile Include="ProjectCra.Designer.cs">
+      <DependentUpon>ProjectCra.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -169,11 +169,11 @@
     <EmbeddedResource Include="Copyright.resx">
       <DependentUpon>Copyright.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CreateObjectMenu.resx">
-      <DependentUpon>CreateObjectMenu.cs</DependentUpon>
+    <EmbeddedResource Include="CreateProjectMenu.resx">
+      <DependentUpon>CreateProjectMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ObjectCra.resx">
-      <DependentUpon>ObjectCra.cs</DependentUpon>
+    <EmbeddedResource Include="ProjectCra.resx">
+      <DependentUpon>ProjectCra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -206,9 +206,7 @@
     <None Include="Resources\bin.png" />
     <None Include="Resources\Music.png" />
     <None Include="Resources\Regex.png" />
-    <Content Include="PNTVM\PNT.exe">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <None Include="PNTVM\PNT.exe" />
     <Content Include="user32.dll" />
     <None Include="Resources\HelloWorld.txt" />
     <None Include="Resources\MessageBox.txt" />

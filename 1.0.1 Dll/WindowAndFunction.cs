@@ -305,7 +305,7 @@ namespace Dll1
 
         private void 项目ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ObjectCra cra = new ObjectCra();
+            ProjectCra cra = new ProjectCra();
             cra.ShowDialog();
         }
 

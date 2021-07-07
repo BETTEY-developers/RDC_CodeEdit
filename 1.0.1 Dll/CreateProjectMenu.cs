@@ -8,11 +8,11 @@ using System.Windows.Forms;
 
 namespace Dll1
 {
-    public struct CompObjectType
+    public struct CompProjectType
     {
         public struct TypeValues
         {
-            public TypeValues(CompObjectType ns = new CompObjectType())
+            public TypeValues(CompProjectType ns = new CompProjectType())
             {
                 Console = ns;
                 Window = ns;
@@ -25,16 +25,16 @@ namespace Dll1
                 Default.Value = 0x3;
                 Empty.Value = int.MinValue;
             }
-            internal CompObjectType Console;
-            internal CompObjectType Window;
-            internal CompObjectType Binray;
-            internal CompObjectType Default;
-            internal CompObjectType Empty;
+            internal CompProjectType Console;
+            internal CompProjectType Window;
+            internal CompProjectType Binray;
+            internal CompProjectType Default;
+            internal CompProjectType Empty;
         }
         internal int Value;
-        public static CompObjectType GetType(int id)
+        public static CompProjectType GetType(int id)
         {
-            TypeValues tv = new TypeValues(new CompObjectType());
+            TypeValues tv = new TypeValues(new CompProjectType());
             switch (id)
             {
                 case 1:
@@ -53,10 +53,10 @@ namespace Dll1
     public struct ObjectSetting
     {
         public string Name;
-        public CompObjectType ObjType;
+        public CompProjectType ObjType;
         public Icon ObjectImage;
     }
-    public partial class CreateObjectMenu : Form
+    public partial class CreateProjectMenu : Form
     {
         class Funs
         {
@@ -66,10 +66,12 @@ namespace Dll1
             }
         }
         ObjectSetting seting = new ObjectSetting();
+        private ProjectCra OC;
 
-        public CreateObjectMenu()
+        public CreateProjectMenu(ProjectCra oc)
         {
             InitializeComponent();
+            OC = oc;
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -79,7 +81,8 @@ namespace Dll1
 
         private void AllOK_Click(object sender, EventArgs e)
         {
-            
+            tabControl1.SelectedIndex++;
+
         }
 
         private void ObjectType_SelectedIndexChanged(object sender, EventArgs e)
@@ -93,9 +96,9 @@ namespace Dll1
             var Result = openFile.ShowDialog();
             if(Result == DialogResult.OK)
             {
-                seting.Name = Funs.GetControlText(ObjectName)
+                seting.Name = Funs.GetControlText(ProjectName)
                     ;
-                seting.ObjType = CompObjectType.GetType(ObjectType.SelectedIndex);
+                seting.ObjType = CompProjectType.GetType(ProjectType.SelectedIndex);
                 if(textBox1.Text != "")
                 {
                     seting.ObjectImage = Icon.ExtractAssociatedIcon(textBox1.Text);
@@ -107,12 +110,30 @@ namespace Dll1
             }
         }
 
-        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        private void progressBar1_Click(object sender, EventArgs e)
         {
-            if(tabControl1.SelectedTab == tabPage3)
+
+        }
+
+        private void next_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedIndex++;
+        }
+
+        private void Exit_Click(object sender, EventArgs e)
+        {
+            OC.Visible = true;
+            this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog ProjectPath = new FolderBrowserDialog();
+            ProjectPath.ShowNewFolderButton = true;
+            var result = ProjectPath.ShowDialog();
+            if(result == DialogResult.OK)
             {
-                while (100000 >= progressBar1.Value)
-                    progressBar1.Value += 100;
+                textBox2.Text = ProjectPath.SelectedPath;
             }
         }
     }

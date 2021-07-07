@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using APICODE.Function.Code;
 using System.Reflection;
 
 namespace RDC代码编辑器
@@ -15,8 +14,8 @@ namespace RDC代码编辑器
         [STAThread]
         private static void Main(string[] args)
         {
-            Application.SetCompatibleTextRenderingDefault(false);
             Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Dll1.WindowAndFunction());
         }
     }

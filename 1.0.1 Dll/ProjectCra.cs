@@ -11,16 +11,16 @@ using System.Windows.Forms;
 namespace Dll1
 {
         
-    public partial class ObjectCra : Form
+    public partial class ProjectCra : Form
     {
-        public ObjectCra()
+        public ProjectCra()
         {
             InitializeComponent();
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            CreateObjectMenu com = new CreateObjectMenu();
+            CreateProjectMenu com = new CreateProjectMenu(this);
             com.Show();
             Visible = false;
         }
